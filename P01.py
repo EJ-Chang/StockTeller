@@ -19,9 +19,15 @@ site = "https://query1.finance.yahoo.com/v8/finance/chart/2330.TW?period1=0&peri
 # request data from the site 
 response = requests.get(site)
 
+print(type(response))
+# this line returns: 
+# <class 'requests.models.Response'>
+# EJ: what does that mean?!
 
-# Transform data into dataframe
-data = json.loads(response.text)
-df = pd.DataFrame(data['chart']['result'][0]['indicators']['quote'][0], index=pd.to_datetime(np.array(data['chart']['result'][0]['timestamp'])*1000*1000*1000))
 
-df.head()
+# --- below are demo codes
+# # Transform data into dataframe
+# data = json.loads(response.text)
+# df = pd.DataFrame(data['chart']['result'][0]['indicators']['quote'][0], index=pd.to_datetime(np.array(data['chart']['result'][0]['timestamp'])*1000*1000*1000))
+
+# print(df.head())
